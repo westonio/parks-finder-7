@@ -17,23 +17,23 @@ RSpec.describe '/parks', type: :feature do
     context 'For each park found' do
       it 'shows the full name of the park' do
         expect(page).to have_css('h2.park-name', count: 15)
-        expect(page).to have_conent('Andrew Johnson National Historic Site')
+        expect(page).to have_content('Andrew Johnson National Historic Site')
       end
 
       it 'shows the description of the park' do
         expect(page).to have_css('p.park-description', count: 15)
-        expect(page)
+        expect(page).to have_content("Andrew Johnson's complex presidency (1865-69) illustrates the Constitution at work following the Civil War. ")
       end
 
       it 'shows direction information' do
         expect(page).to have_css('p.park-directions', count: 15)
-        save_and_open_page
+        expect(page).to have_content('To arrive at the Visitor Center, use 101 North College Street, Greeneville, TN.')
       end
 
       it 'show hours of operation' do
         expect(page).to have_css('ul.park-operating-hours', count: 15)
 
-        within('ul.park-operating-hours') do
+        first('ul.park-operating-hours') do
           expect(page).to have_css('li.monday')
           expect(page).to have_css('li.tuesday')
           expect(page).to have_css('li.wednesday')
