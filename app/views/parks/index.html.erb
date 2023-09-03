@@ -1,0 +1,19 @@
+<h1>Found <%= @facade.total_parks %> parks in <%= @facade.state %></h1>
+
+<% @facade.state_parks.each do |park| %>
+  <div class="park-info">
+    <h2 class="park-name"><%= park.name %></h2>
+    <p class="park-description">Description: <%= park.description %></p>
+    <p class="park-directions">Directions: <%= park.directions %></p>
+    <p>Operating Hours: </p>
+    <ul class="park-operating-hours"> 
+      <li class="monday">Monday: <%= park.operating_hours[:monday] %></li>
+      <li class="tuesday">Tuesday: <%= park.operating_hours[:tuesday] %></li>
+      <li class="wednesday">Wednesday: <%= park.operating_hours[:wednesday] %></li>
+      <li class="thursday">Thursday: <%= park.operating_hours[:thursday] %></li>
+      <li class="friday">Friday: <%= park.operating_hours[:friday] %></li>
+      <li class="saturday">Saturday: <%= park.operating_hours[:saturday] %></li>
+      <li class="sunday">Sunday: <%= park.operating_hours[:sunday] %></li>
+    </ul>
+  </div>
+<% end %>
